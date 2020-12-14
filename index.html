@@ -1,0 +1,348 @@
+﻿<!DOCTYPE HTML>
+<!--
+	Prologue by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Columbia University EECS E4764 IoT Project Report #0</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+			<div id="header">
+
+				<div class="top">
+
+					<!-- Logo -->
+						<div id="logo">
+							<!-- <span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span> -->
+							<h1 id="title">Recommend System with Face Detection & App design</h1>
+							<p>Columbia University <br>
+								EECS E4764 Fall'20 Internet of Things<br>
+								Intelligent and Connected Systems<br>
+								Team 5 Project Report
+							</p>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<!--
+
+								Prologue's nav expects links in one of two formats:
+
+								1. Hash link (scrolls to a different section within the page)
+
+								   <li><a href="#foobar" id="foobar-link" class="icon fa-whatever-icon-you-want skel-layers-ignoreHref"><span class="label">Foobar</span></a></li>
+
+								2. Standard link (sends the user to another page/site)
+
+								   <li><a href="http://foobar.tld" id="foobar-link" class="icon fa-whatever-icon-you-want"><span class="label">Foobar</span></a></li>
+
+							-->
+							<ul>
+								<li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Abstract</span></a></li>
+								<li><a href="#motivation" id="motivation-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Motivation</span></a></li>
+								<li><a href="#system" id="system-link" class="skel-layers-ignoreHref"><span class="icon fa-th">System</span></a></li>
+								<li><a href="#results" id="results-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Results</span></a></li>
+								<li><a href="#references" id="references-link" class="skel-layers-ignoreHref"><span class="icon fa-th">References</span></a></li>
+								<li><a href="#team" id="team-link" class="skel-layers-ignoreHref"><span class="icon fa-user">Our Team</span></a></li>
+								<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+				<div class="bottom">
+
+					<!-- Social Icons -->
+						<ul class="icons">
+							<li><a href="https://twitter.com/share?text=Recommend System with Face Detection and App design&url=https://youtu.be/J1QwLRInllo" target="_blank" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<!-- <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li> -->
+						</ul>
+
+				</div>
+
+			</div>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Intro -->
+					<section id="top" class="one dark cover">
+						<div class="container">
+
+								<iframe width="560" height="315" src="https://www.youtube.com/embed/J1QwLRInllo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+								<h2 class="alt">Recommend System with Face Detection & App design</h2>
+								<br>
+								<p>
+									Our project aims to design a system for a retail store which can recognize a customer’s face and recommend products to the customer based on his/her shopping history in the store.
+								</p>
+
+
+							<footer>
+								<a href="#contact" class="button scrolly">Contact us</a>
+							</footer>
+
+						</div>
+					</section>
+
+				<!-- Portfolio -->
+					<section id="motivation" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Motivation</h2>
+							</header>
+
+							<p align="left">Personalized commerce has become the next frontier for retails. While product recommendation has been widely used on many e-commerce sites,
+							we cannot see much retail stores benefiting from this technology.</p>
+							<p align="left">An article on Forbes points out that customers spend 48% more when their shopping experience is personalized. (<a href="#references">Jia Wertz</a>)
+							To bring personalized shopping experience into retail stores, we decided to design this recommendation system. 
+							With robots stepping into stores like Walmart, Lowes, and Giant Food Stores, (<a href="#references">Blake Morgan</a>) 
+							we can imagine a robot with our recommendation system recognizing customers, giving recommendation and even guide them to the products. 
+							</p>
+						</div>
+					</section>
+
+
+					<section id="system" class="three">
+						<div class="container">
+
+							<header>
+								<h2>System</h2>
+							</header>
+
+							<p align="left">Our system contains four main parts: 
+							(1) <a href="#Rasberry">Raspberry Pi face recognition module</a>; 
+							(2) <a href="#Rec System">Product recommendation system</a>; 
+							(3) <a href="#Android App">Android application with voice recognition</a>; 
+							(4) <a href="#Cloud Storage">Cloud Data Storage</a>. 
+							</p>	
+
+
+							<h3 align="left">Architecture</h3>
+							<article class="item">
+								<a href="images/architecture.jpg" target="_blank" class="image fit"><img src="images/architecture.jpg" alt="" /></a>
+							</article>
+
+							<div>
+								<h3 align="left">Technical Components</h3>
+								<p id="Rasberry" align="left">
+									<strong>(1)	Rasberry Pi & Facial Recognition:</strong><br>
+									First, with raspberry pi model 3B+ and its camera module, we used opencv frontface model to capture faces of customers and labeled them manually.<br>
+									Then we imported collected faces to opencv recognizer to train a specific face recognition model for our customers.<br>
+									In th last part, when customer is captured by camera, the model will predict a name and trasfer it to server using socket.
+								</p>	
+								
+								<p id="Rec System" align="left">
+									<strong>(2)	Recommendation System:</strong><br>
+									The recommendation system can recommend product in the category that the customer is looking for. If the customer has bought products in the category, this system will compute an acceptable range of price of products in the category based on products bought by the customer and find the best-selling products in the category within the price range. However, if the customer has not purchased any products in the category, the system will recommend the best-selling product in the category without any price constraint.<br>
+									We developed additional algorithms to make the recommendation system be flexible to satisfy diversified demand of customers. One can recommend best sell products under the brand that the customer is looking for or the most purchased brand of the customer. Another can recommend products that most buy with the most purchased product of the customer. Those algorithms are not applied in the current version of out project for real work, but they can be found in the code of our recommendation system for future use.<br>
+								</p>
+								<p id="Android App" align="left">
+									<strong>(3)	Android application & Voice Recognition:</strong><br>
+									The android application is used to help the customer find the recommended product in a certain category. Utilizing the Short Sentence Recognition provided by Ali cloud, the application takes in the voice request given by the customer, containing the target category where the recommended product is about to be found. From the voice request, our application will divide the request into words and matches the words with the category database.
+									If we found the category word in the voice request, the application will send request to the local computer, and the recommendation system will search for a suitable product and send back the product information to the application. Then the product information will be displayed on the application, containing product name, category, price, and the place to find it.<br>
+								</p>
+								<p id="Cloud Storage" align="left">
+									<strong>(4)	Cloud Data Storage:</strong><br>
+									We take the advantage of the IoT module of Ali Cloud for cloud data storage. Our system can upload new purchase data to the cloud, use the Data Analysis parts of IoT module for data processing and download data when system needs it. By connect with Ali Cloud, every individual system used by each store can access the historical purchase record of customers and recommend products sold by each store according to each customer’s habit.  <br>
+								</p>
+							</div>
+
+
+							<h3 align="left">Prototype</h3>
+							<div class="row">
+								<div class="4u 12u$(mobile)">
+									<article class="item">
+										<div class="image fit"><img src="images/rasberry img.jpg" alt="" /></div>
+										<header>
+											<h3><a href="images/rasberry console.png">Rasberry Pi</a><br>
+											<a href="images/rasberry system.jpg">Face Recoginition module</a></h3>
+										</header>
+									</article>
+								</div>
+								<div class="4u 12u$(mobile)">
+									<article class="item">
+										<div class="image fit"><img src="images/cloud img.jpg" alt="" /></div>
+										<header>
+											<h3><a href="images/recommendation code.png">Recommendation System</a><br>
+											& <a href="images/cloud storage.png">Cloud Storage</a></h3>
+										</header>
+									</article>
+								</div>
+								<div class="4u$ 12u$(mobile)">
+									<article class="item">
+										<div class="image fit"><img src="images/app img.jpg" alt="" /></div>
+										<header>
+											<h3><a href="images/app.jpg">Android Application</a><br>
+											with Voice Recoginition</h3>
+										</header>
+									</article>
+								</div>
+							</div>
+
+
+
+						</div>
+					</section>
+
+
+					<section id="results" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Results</h2>
+							</header>
+
+							<p align="left">The system recognize a customer and gives the infomation of a recommended product to the customer in the category that the customer wants to buy.
+								(<a href="#">video</a>)
+							</p>
+
+
+							<article class="item">
+								<a href="images/result.jpg" target="_blank" class="image fit"><img src="images/result.jpg" alt="" /></a>
+							</article>
+
+
+						</div>
+					</section>
+
+					<section id="references" class="three">
+						<div class="container">
+
+							<header>
+								<h2>References</h2>
+							</header>
+
+							<p align="left">
+							[1] <a href="https://www.forbes.com/sites/jiawertz/2020/08/01/3-emerging-e-commerce-growth-trends-to-leverage-in-2020/?sh=5d0c991b6fee" target="_blank">
+							Jia Wertz. 3 Emerging E-Commerce Growth Trends To Leverage In 2020. Aug 1, 2020.
+							</a><br>
+							[2] <a href="https://www.forbes.com/sites/blakemorgan/2019/09/03/slow-your-roll-robots-not-everyone-is-excited-about-walmarts-robots/?sh=5a39fc333b3b" target="_blank">
+							Blake Morgan. Slow Your Roll Robots: Not Everyone Is Excited About Walmart's Robots. Sep 3, 2019.
+							</a><br>
+							[3] <a href="https://maker.pro/raspberry-pi/projects/how-to-create-a-facial-recognition-door-lock-with-raspberry-pi" target="_blank">
+							Muhammad Aqib. Use a Raspberry Pi camera and a solenoid lock to create a door lock that unlocks when it recognizes your face!. Apr 18, 2019.
+							</a><br>
+							[4] <a href="https://help.aliyun.com/document_detail/173115.html?spm=a2c4g.11186623.6.577.416323e4Hmn6tK" target="_blank">
+							Ali Cloud. Android NUI SDK example code. </a>
+							(<a href="https://gw.alipayobjects.com/os/bmw-prod/a261bc45-2903-44e0-86c5-8caa6acdd96c.zip?spm=a2c4g.11186623.2.20.6b89692dXmIm4k&file=a261bc45-2903-44e0-86c5-8caa6acdd96c.zip">Download SDK and example code</a>)
+							</p>
+
+						</div>
+					</section>
+
+
+				<!-- About Me -->
+					<section id="team" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Our Team</h2>
+							</header>
+
+							<!-- <a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a> -->
+
+
+							<div class="row">
+								<div class="4u 12u$(mobile)">
+									<article class="item">
+										<div class="image fit"><img src="images/member1.jpg" alt="" /></div>
+										<header>
+											<h3>Yihan Wang</h3>
+											<p>MS Graduate Student</p>
+										</header>
+									</article>
+								</div>
+								<div class="4u 12u$(mobile)">
+									<article class="item">
+										<div class="image fit"><img src="images/member2.jpg" alt="" /></div>
+										<header>
+											<h3>Yuan Gao</h3>
+											<p>MS Graduate Student</p>
+										</header>
+									</article>
+								</div>
+								<div class="4u$ 12u$(mobile)">
+									<article class="item">
+										<div class="image fit"><img src="images/member3.jpg" alt="" /></div>
+										<header>
+											<h3>Bohan Sun</h3>
+											<p>MS Graduate Student</p>
+										</header>
+									</article>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+				<!-- Contact -->
+					<section id="contact" class="four">
+						<div class="container">
+
+							<header>
+								<h2>Contact</h2>
+							</header>
+
+							<p align="left">
+								<strong>Yihan Wang: </strong>yw3374@columbia.edu</br>
+								<strong>Yuan Gao: </strong>yg2669@columbia.edu</br>
+								<strong>Bohan Sun: </strong>bs3231@columbia.edu</br>
+							</br>
+								<strong>Columbia University </strong><a href="http://www.ee.columbia.edu">Department of Electrical Engineering</a><br>
+								<!-- <strong>Class Website:</strong>
+									<a href="https://edblogs.columbia.edu/eecs4764-001-2019-3/">Columbia University EECS E4764 Fall '19 IoT</a></br> -->
+								<strong>Instructor:</strong> <a href="http://fredjiang.com/">Professsor Xiaofan (Fred) Jiang</a>
+							</p>
+
+
+							<!-- <form method="post" action="#">
+								<div class="row">
+									<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Name" /></div>
+									<div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" /></div>
+									<div class="12u$">
+										<textarea name="message" placeholder="Message"></textarea>
+									</div>
+									<div class="12u$">
+										<input type="submit" value="Send Message" />
+									</div>
+								</div>
+							</form> -->
+
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<div id="footer">
+
+				<!-- Copyright -->
+					<ul class="copyright">
+						<li>&copy; IoT Project | All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollzer.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
